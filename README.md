@@ -37,6 +37,7 @@ cardano-cli query protocol-parameters \
  7. Generate your policy.id hash from your cold environment (unless you are doing everything on a single hot node)
  8. Paste this ID into your nftmeta.json file for the NFT to be minted
  9. Once these three files (policy.script, policy.id, nftmeta.json) are updated for the current minting on your hot node, run the mintBuildTX.sh script.
+  - Run mintBuildTX.sh with 2 inputs, the NFT name and the block height at which locking will occur.
  10. Move the generated file (tx_nft.raw) to your cold environment for signing (or sign on the same node if you are not using a cold environment)
  11. Run the mintSignTX.sh script with the tx_nft.raw file in the same directory
  12. Move the generated tx_nft.signed file back to your hot environment (unless already there if only using a single hot node)
