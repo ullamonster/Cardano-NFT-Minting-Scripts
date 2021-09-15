@@ -1,0 +1,14 @@
+{
+    "721": {
+        "PolicyID_Generated_Using_Updated_Policy_Script": {
+            "InternalName_Like_a_Ticker": {
+                "name": "Friendly Name",
+                "artist": "Creator Of NFT",
+                "image": "ipfs://HASH_or_CID_of_Uploaded_Image",
+                "description": "Some description, or the word description can be customized like most lines from here on down",
+                "characteristics":["An Array Item - Something Here","Another One","More of them"],
+                "anothercustomtitle": "A single non-array item"
+            }
+        }
+    }
+}
