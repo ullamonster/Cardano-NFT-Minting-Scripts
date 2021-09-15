@@ -1,0 +1,13 @@
+{
+    "type": "all",
+    "scripts": [
+      {
+        "keyHash": "HASH_Generated_From_System_With_Your_Policy_Keys",
+        "type": "sig"
+      },
+      {
+        "type": "before",
+        "slot": 39941718
+      }
+    ]
+}
