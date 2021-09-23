@@ -19,12 +19,20 @@ cardano-cli query protocol-parameters \
     --out-file params.json
 ```
  5. Have your policy skey and vkey files generated and find your policy key-hash.
-Generate your policy keys with: ```cardano-cli address key-gen \
+Generate your policy keys with:
+```
+cardano-cli address key-gen \
     --verification-key-file policy.vkey \
-    --signing-key-file policy.skey```
-Find your policy key-hash with: ```cardano-cli address key-hash --payment-verification-key-file policy.vkey```
+    --signing-key-file policy.skey
+```
+Find your policy key-hash with:
+```
+cardano-cli address key-hash --payment-verification-key-file policy.vkey
+```
  6. From your updated policy.script file, containing your policy key-hash and the block number for locking of the policy, you can generate your policy ID with:
-```cardano-cli transaction policyid --script-file policy.script```
+```
+cardano-cli transaction policyid --script-file policy.script
+```
  7. Your $NODE_HOME should also contain the following files, updated for the NFT being minted (assumption is 1 NFT, adjust for multiple by editing your JSON file accordingly):
     - policy.script (the NFT policy script used to generate the ID and containing the block number at which to lock the policy) - This will contain your policy key-hash, found in step 5 above.
     - policy.id (the NFT policy ID generated from step 6 above, with an updated policy.script file)
