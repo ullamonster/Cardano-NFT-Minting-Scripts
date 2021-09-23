@@ -7,7 +7,7 @@ No guarantees on these scripts. They have been tested and work for me. Use at yo
 
 ## Assumptions/Prereq's:
 
- 1. You have a Cardano Node running on mainnet. I followed this guide, steps 1 - 8 only (not a staking node, just a node): https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node
+ 1. You have a Cardano Node running on mainnet...(for testnet replace `--mainnet` entries with the appropriate testnet magic entry, e.g. `--testnet-magic 1097911063`.  I followed this guide, steps 1 - 8 only (not a staking node, just a node): https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node
  2. Create some log folders within $NODE_HOME:
     - $NODE_HOME/logs/payments
     - $NODE_HOME/logs/sent
