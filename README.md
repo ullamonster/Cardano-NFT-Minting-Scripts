@@ -43,3 +43,7 @@ cardano-cli query protocol-parameters \
  12. Move the generated tx_nft.signed file back to your hot environment (unless already there if only using a single hot node)
  13. Run the mintSendTX.sh script with the tx_nft.signed file in the same directory
  14. Copy your policy.script, policy.id, and nftmeta.json into a directory for archiving for the given NFT, then you can reuse these as templates for future mintings and edit at will from the node directory & cold environment
+
+## Important Notes
+
+Remove comments from bash files or they'll fail
