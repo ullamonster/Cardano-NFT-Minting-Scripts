@@ -28,8 +28,6 @@ echo Number of UTXOs: ${txcnt}
 # Draft the tx
 cardano-cli transaction build-raw \
     ${tx_in} \
-    # NOTE: The following line must end with any other tokens or NFTs held in your UTXO, e.g. append: +"1 policyid.nftname"+"1 policyid.anothernft" (etc)
-    # I'm working on a fix to automate this, it seems part of the issue I ran into automating it before was a 'TxOutDatumHashNone' which shows at the UTXO and is appending causing an error.  Working on it.
     --tx-out $(cat payment.addr)+5000000+"1 $(cat policy.id).${nftName}" \
     --invalid-hereafter 0 \
     --fee 0 \
@@ -58,7 +56,6 @@ echo "=========================="
 echo ""
 cardano-cli transaction build-raw \
     ${tx_in} \
-    # NOTE: The following line must end with any other tokens or NFTs held in your UTXO, e.g. append: +"1 policyid.nftname"+"1 policyid.anothernft" (etc)
     --tx-out $(cat payment.addr)+${txOut}+"1 $(cat policy.id).${nftName}" \
     --invalid-hereafter ${nftSlot} \
     --fee ${fee} \
