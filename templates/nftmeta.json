@@ -1,7 +1,7 @@
 {
     "721": {
         "PolicyID_Generated_Using_Updated_Policy_Script": {
-            "InternalName_Like_a_Ticker": {
+            "NFTName_Or_Ticker": {
                 "name": "Friendly Name",
                 "artist": "Creator Of NFT",
                 "image": "ipfs://HASH_or_CID_of_Uploaded_Image",
