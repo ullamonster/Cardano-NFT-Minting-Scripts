@@ -18,18 +18,25 @@ cardano-cli query protocol-parameters \
     --mainnet \
     --out-file params.json
 ```
- 5. Your $NODE_HOME should also contain the following files, updated for the NFT being minted (assumption is 1 NFT, adjust for multiple by editing your JSON file accordingly):
-    - policy.script (the NFT policy script used to generate the ID and containing the block number at which to lock the policy)
-    - policy.id (the NFT policy ID generated following the instructions below)
+ 5. Have your policy skey and vkey files generated and find your policy key-hash.
+Generate your policy keys with: ```cardano-cli address key-gen \
+    --verification-key-file policy.vkey \
+    --signing-key-file policy.skey```
+Find your policy key-hash with: ```cardano-cli address key-hash --payment-verification-key-file policy.vkey```
+ 6. From your updated policy.script file, containing your policy key-hash and the block number for locking of the policy, you can generate your policy ID with:
+```cardano-cli transaction policyid --script-file policy.script```
+ 7. Your $NODE_HOME should also contain the following files, updated for the NFT being minted (assumption is 1 NFT, adjust for multiple by editing your JSON file accordingly):
+    - policy.script (the NFT policy script used to generate the ID and containing the block number at which to lock the policy) - This will contain your policy key-hash, found in step 5 above.
+    - policy.id (the NFT policy ID generated from step 6 above, with an updated policy.script file)
     - nftmeta.json (the NFT meta data)
+
  
  ## Instructions
  
  1. Prepare your NFT so it's ready to mint before the next steps
     - Upload the NFT image to IPFS - an easy way to do this is via pinata.cloud, it will generate hash for the pin, called CID on their site, copy this and paste into your nftmeta.json file in the IPFS section like so: ipfs://PastedHashHere
     - Update your nftmeta.json file with any other details, like description, name, etc.
- 2. First Time: In your cold environment (or same node if you choose to just do it on one machine) generate your payment keys and policy keys, and finally your policy hash for use in all your related policy.script files.
-!! Commands coming !!
+ 2. First Time: In your cold environment (or same node if you choose to just do it on one machine) generate your payment keys and policy keys, and finally your policy hash for use in all your related policy.script files. See steps 5 and 6 from Assumptions above.
  3. Ensure your node is sync'd up! This can be done using gLiveView.sh script within your $NODE_HOME folder, should see a smiley face :) or close in diff
  4. Query the tip
  5. Add block time to the resultant/current tip, however much time before this particular policy you are minting to will lock and no longer allow further minting to it.  1800 is about 30 minutes, so calculate how much time you want and add to the tip query result from step 4.
