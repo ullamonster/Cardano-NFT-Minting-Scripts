@@ -28,7 +28,7 @@ echo Number of UTXOs: ${txcnt}
 # Draft the tx
 cardano-cli transaction build-raw \
     ${tx_in} \
-    --tx-out $(cat payment.addr)+5000000+"1 $(cat policy.id).${nftName}" \
+    --tx-out $(cat payment.addr)+2000000+"1 $(cat policy.id).${nftName}" \
     --invalid-hereafter 0 \
     --fee 0 \
     --mint="1 $(cat policy.id).${nftName}" \
@@ -46,7 +46,7 @@ fee=$(cardano-cli transaction calculate-min-fee \
     --protocol-params-file params.json | awk '{ print $1 }')
     
 echo fee: $fee
-txOut=$((${total_balance}-${fee}))
+txOut=$((${total_balance}-2000000-${fee}))
 echo Change Output: ${txOut}
 
 # Build the TX
@@ -56,7 +56,8 @@ echo "=========================="
 echo ""
 cardano-cli transaction build-raw \
     ${tx_in} \
-    --tx-out $(cat payment.addr)+${txOut}+"1 $(cat policy.id).${nftName}" \
+    --tx-out $(cat payment.addr)+${txOut} \
+    --tx-out $(cat payment.addr)+2000000+"1 $(cat policy.id).${nftName}" \
     --invalid-hereafter ${nftSlot} \
     --fee ${fee} \
     --mint="1 $(cat policy.id).${nftName}" \
